@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<style>
+    p{
+        align : center
+    }
+    h1{
+        margin : auto;
+    }
+
+    table {
+        text-align: center;
+        border-left: 5px solid #CCCCCC;
+        border-right: 5px solid #CCCCCC;
+        margin: auto;
+    }
+    td {
+        border-top: 5px solid #CCCCCC;
+        border-bottom: 5px solid #CCCCCC;
+    }
+</style>
+<head>
+    <title>Home</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Список контактов</h1>
+<table>
+    <tr><th>Name</th><th>Number</th><th></th></tr>
+    {{#each users}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.number}}</td>
+            <td>
+                <a href="/edit/{{this.id}}">Edit</a>|
+                <form action="delete/{{this.id}}" method="POST" style="display:inline;">
+                    <input type="submit" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    {{/each}}
+</table>
+<p><a href="/create">Добавить пользователя</a></p>
+</body>
+<html>
